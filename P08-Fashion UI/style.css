@@ -1,0 +1,316 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #111;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e4e4e4;
+  padding-bottom: 20px;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #111;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.black {
+  background: #111;
+  color: white;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  margin-top: 40px;
+}
+
+.title {
+  text-align: center;
+  font-size: 90px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+/* ================= MAIN GRID ================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1.2fr
+    1fr
+    1fr;
+
+  gap: 20px;
+  align-items: end;
+}
+
+.card {
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.small {
+  height: 250px;
+}
+
+.medium {
+  height: 320px;
+}
+
+.large {
+  height: 520px;
+}
+
+.yellow {
+  background: #ffd84d;
+}
+
+.orange {
+  background: #ff9330;
+}
+
+.green {
+  background: #b7eac8;
+}
+
+.blue {
+  background: #31a9ff;
+}
+
+.beige {
+  background: #edd4a8;
+}
+
+/* ================= SIDE TEXT ================= */
+
+.side-text {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.flower {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* ================= EXPLORE ================= */
+
+.explore {
+  width: 170px;
+  height: 170px;
+  border: 2px solid #111;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+  position: relative;
+}
+
+.explore::before {
+  content: "▶";
+  position: absolute;
+  font-size: 24px;
+}
+
+.rotate-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.rotate-text span {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform-origin: 0 85px;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= BOTTOM ================= */
+
+.bottom {
+  margin-top: 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.quote {
+  max-width: 450px;
+}
+
+.quote-mark {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.quote p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+.signature {
+  margin-top: 20px;
+  font-size: 45px;
+  font-family: cursive;
+  border-bottom: 6px solid #ffd84d;
+  display: inline-block;
+}
+
+.scroll-btn {
+  padding: 18px 35px;
+  border: none;
+  border-radius: 18px;
+  background: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.blog {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.blog h1 {
+  font-size: 80px;
+  font-weight: 300;
+}
+
+.blog p {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.arrow {
+  width: 60px;
+  height: 60px;
+  background: #111;
+  color: white;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .title {
+    font-size: 55px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .large {
+    height: 400px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
