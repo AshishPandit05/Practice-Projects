@@ -1,0 +1,40 @@
+* {
+  margin: 10;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(13, 13, 13);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.bulb-container {
+  height: 400px;
+  width: 100%;
+  background-color: rgb(63, 69, 67);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.bulb {
+  height: 300px;
+  width: 300px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: white;
+}
+.btn {
+  padding: 10px 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+}
+.bulb-on {
+  background-color: yellow;
+}
