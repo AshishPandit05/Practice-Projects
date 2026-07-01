@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  height: 60%;
+  width: 60%;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(208, 202, 213);
+}
+input {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+}
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+#add {
+  background-color: rgb(62, 62, 247);
+}
+.task-list {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
+.li {
+  display: flex;
+  width: 100%;
+  padding: 5px 5px;
+  justify-content: space-between;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+.edit-btn {
+  background-color: rgb(232, 174, 27);
+}
+.delete-btn {
+  background-color: rgb(230, 20, 20);
+}
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px 10px;
+}
