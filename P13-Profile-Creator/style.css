@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(94, 97, 96);
+  margin-top: 20px;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(250, 188, 54);
+}
+form {
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.input-box {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 20px;
+}
+.input-box input {
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: none;
+}
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 100%;
+}
+.submit button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: none;
+}
+.users {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  background-color: rgb(80, 84, 85);
+}
+.user_card {
+  height: 400px;
+  width: 300px;
+  border: 2px solid white;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgb(42, 54, 55);
+}
+.img_box {
+  height: 70%;
+  width: 100%;
+  border-radius: 10px;
+  padding: 8px;
+}
+.img_box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.text {
+  color: white;
+  margin: 10px;
+  padding: 5px;
+}
+.edit_delete {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  /* padding: 10px 20px; */
+}
+.edit {
+  color: white;
+  height: 30px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  background-color: darkorange;
+  cursor: pointer;
+}
+.delete {
+  color: white;
+  height: 30px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  background-color: darkred;
+  cursor: pointer;
+}
