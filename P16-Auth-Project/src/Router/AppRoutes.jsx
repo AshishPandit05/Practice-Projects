@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router/dom";
 import AuthLayout from "../Layouts/AuthLayout";
 import LoginPage from "../Pages/LoginPage";
 import RegisterPage from "../Pages/RegisterPage";
+import MainLayout from "../Layouts/MainLayout";
 
 const AppRoutes = () => {
   let router = createBrowserRouter([
@@ -20,6 +21,10 @@ const AppRoutes = () => {
           element: <RegisterPage />,
         },
       ],
+    },
+    {
+      path: "/main",
+      element: <MainLayout />,
     },
   ]);
 

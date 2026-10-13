@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { Auth } from "../context/AuthContext";
 
 const LoginPage = () => {
+  const { registeredUsers, loggedInUser, setLoggedInUser } = useContext(Auth);
   let navigate = useNavigate();
+
+  let {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  let formSubmit = (data) => {
+    let user = registeredUsers.find((val) => {
+      val.email === data.email && val.password === data.password;
+    });
+    if (!user) {
+      alert("user not found");
+      return;
+    }
+    reset();
+  };
+
   return (
     <div className="min-h-screen bg-liner-to-br from-slate-950 via-slate-900 to-indigo-950 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
@@ -10,14 +32,14 @@ const LoginPage = () => {
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-8">
           {/* Heading */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-white">Welcome Back 👋</h1>
+            <h1 className="text-3xl font-bold text-black">Welcome Back 👋</h1>
             <p className="text-slate-400 mt-2">
               Login to continue to your account
             </p>
           </div>
 
           {/* Form */}
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit(formSubmit)} className="space-y-5">
             {/* Email */}
             <div>
               <label
@@ -28,11 +50,15 @@ const LoginPage = () => {
               </label>
 
               <input
+                {...register("email", { required: "email is required" })}
                 id="email"
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-black placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
               />
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
             </div>
 
             {/* Password */}
@@ -45,11 +71,21 @@ const LoginPage = () => {
               </label>
 
               <input
+                {...register("password", {
+                  required: "password is required",
+                  minLength: {
+                    value: 6,
+                    message: "minimum 6 characters is required",
+                  },
+                })}
                 id="password"
                 type="password"
                 placeholder="Enter your password"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-black placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
               />
+              {errors.password && (
+                <p className="text-red-500">{errors.password.message}</p>
+              )}
             </div>
 
             {/* Forgot Password */}

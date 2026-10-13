@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router";
+import { useForm } from "react-hook-form";
+import { Auth } from "../context/AuthContext";
 
 const RegisterPage = () => {
+  const { registeredUsers, setRegisteredUsers } = useContext(Auth);
   let navigate = useNavigate();
+  let {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  let formSubmit = (data) => {
+    let arr = [...registeredUsers, data];
+    setRegisteredUsers(arr);
+    alert("User Registered seccessfully");
+    localStorage.setItem("registeredUsers", JSON.stringify(arr));
+
+    reset();
+  };
   return (
     <div className="min-h-screen bg-liner-to-br from-slate-950 via-slate-900 to-indigo-950 flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md">
@@ -10,7 +28,7 @@ const RegisterPage = () => {
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-8">
           {/* Heading */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-white">Create Account 🚀</h1>
+            <h1 className="text-3xl font-bold text-black">Create Account 🚀</h1>
 
             <p className="text-slate-400 mt-2">
               Create an account to get started
@@ -18,7 +36,7 @@ const RegisterPage = () => {
           </div>
 
           {/* Form */}
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit(formSubmit)} className="space-y-5">
             {/* Name */}
             <div>
               <label
@@ -29,13 +47,16 @@ const RegisterPage = () => {
               </label>
 
               <input
+                {...register("name", { required: "name is required" })}
                 id="name"
                 type="text"
                 placeholder="Enter your full name"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-black placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
               />
+              {errors.name && (
+                <p className="text-red-500">{errors.name.message}</p>
+              )}
             </div>
-
             {/* Email */}
             <div>
               <label
@@ -46,13 +67,16 @@ const RegisterPage = () => {
               </label>
 
               <input
+                {...register("email", { required: "email is required" })}
                 id="email"
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-black placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
               />
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
             </div>
-
             {/* Password */}
             <div>
               <label
@@ -63,28 +87,21 @@ const RegisterPage = () => {
               </label>
 
               <input
+                {...register("password", {
+                  required: "password is required",
+                  minLength: {
+                    value: 6,
+                    message: "minimum 6 characters is required",
+                  },
+                })}
                 id="password"
                 type="password"
                 placeholder="Create a password"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-black placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
               />
-            </div>
-
-            {/* Confirm Password */}
-            <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-slate-300 mb-2"
-              >
-                Confirm Password
-              </label>
-
-              <input
-                id="confirmPassword"
-                type="password"
-                placeholder="Confirm your password"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30"
-              />
+              {errors.password && (
+                <p className="text-red-500">{errors.password.message}</p>
+              )}
             </div>
 
             {/* Register Button */}
