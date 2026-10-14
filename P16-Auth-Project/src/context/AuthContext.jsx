@@ -7,7 +7,9 @@ export const AuthProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("registeredUsers")) || [],
   );
 
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(
+    JSON.parse(localStorage.getItem("loggedInUser")),
+  );
   //   console.log("registerUser --> ", registeredUsers);
   //   console.log("loggedInUser --> ", loggedInUser);
 

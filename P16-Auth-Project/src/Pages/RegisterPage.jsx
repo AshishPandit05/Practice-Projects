@@ -17,7 +17,10 @@ const RegisterPage = () => {
     let arr = [...registeredUsers, data];
     setRegisteredUsers(arr);
     alert("User Registered seccessfully");
+
+    localStorage.setItem("loggedInUser", JSON.stringify(data));
     localStorage.setItem("registeredUsers", JSON.stringify(arr));
+    navigate("/main");
 
     reset();
   };
